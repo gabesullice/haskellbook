@@ -1,0 +1,11 @@
+(\x y z -> (++)((++)xy)z)"../config" "/sync" "/myfile.txt"
+(\y z -> (++) ((++) "../config" y ) z) "/sync" "/myfile.txt"
+(\z -> (++) ((++) "../config" "/sync") z) "/myfile.txt"
+(++) ((++) "../config" "/sync") "/myfile.txt"
+(++) "../config/sync" "/myfile.txt"
+"../config/sync/myfile.txt"
+
+(\x y z -> (++)((++)xy)z) "../config" "/sync" "/myfile.txt"
+(\x -> (\y z -> (++) x ((++) y z))) "../config" "/sync" "/myfile.txt"
+(\x -> (\y -> (\z -> (++) x ((++) y z)))) "../config" "/sync" "/myfile.txt"
+csfunc = (\x -> (\y -> (\z -> (++) x ((++) y z)))) "../config" "/sync"
